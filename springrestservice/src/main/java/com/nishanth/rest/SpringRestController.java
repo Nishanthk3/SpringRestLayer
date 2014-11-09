@@ -50,7 +50,7 @@ public class SpringRestController {
     		HttpServletResponse httpResp)
     {
 		Ack ack = new Ack();
-		ack.setInterchangeId("123789");
+		ack.setUniqueId("123789");
 		ack.setType("plain");
 		return ack;
     }
@@ -60,7 +60,7 @@ public class SpringRestController {
     		HttpServletResponse httpResp)
     {
 		Ack ack = new Ack();
-		ack.setInterchangeId("123456");
+		ack.setUniqueId("123456");
 		ack.setType("xml");
 		return ack;
     }
@@ -70,7 +70,7 @@ public class SpringRestController {
     		HttpServletResponse httpResp)
     {
 		Ack ack = new Ack();
-		ack.setInterchangeId("456789");
+		ack.setUniqueId("456789");
 		ack.setType("json");
 		return ack;
     }
