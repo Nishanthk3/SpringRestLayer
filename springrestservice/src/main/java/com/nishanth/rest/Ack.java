@@ -10,7 +10,7 @@ import org.codehaus.jackson.map.annotate.JsonRootName;
 @JsonRootName(value = "ack")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "Ack", propOrder = {
-		"interchangeId",
+		"uniqueId",
 		"type"
 })
 public class Ack {
