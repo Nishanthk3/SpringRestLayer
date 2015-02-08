@@ -12,4 +12,11 @@
 	<mvc:annotation-driven/>
 	<context:annotation-config/>
 	<context:component-scan base-package="com.nishanth.rest" />
+	<bean class = "org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	<property name="locations">
+		<list>
+			<value>classpath:sample.properties</value>
+		</list>
+	</property>
+	</bean>
 </beans>

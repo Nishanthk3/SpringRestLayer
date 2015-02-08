@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJacksonHttpMessageConverter;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,9 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 
 @Controller
 public class SpringRestController {
+	
+	@Value("${sample.key1}")
+	private String value;
 
 	@RequestMapping( value="/")
 	public @ResponseBody String welcomePage()
@@ -24,6 +28,7 @@ public class SpringRestController {
 	@RequestMapping( value="/greeting")
 	public @ResponseBody String greetingPage()
 	{
+		System.out.println("VALUE = "+value);
 		return "HELLO SPRING";
 	}
 	
