@@ -70,8 +70,8 @@ public class SpringRestController {
     		HttpServletResponse httpResp)
     {
 		Ack ack = new Ack();
-		ack.setUniqueId("123456");
-		ack.setType("xml");
+		ack.setUniqueId(sample.getId());
+		ack.setType(sample.getName());
 		return ack;
     }
 	
@@ -80,8 +80,8 @@ public class SpringRestController {
     		HttpServletResponse httpResp)
     {
 		Ack ack = new Ack();
-		ack.setUniqueId("456789");
-		ack.setType("json");
+		ack.setUniqueId(sample.getId());
+		ack.setType(sample.getName());
 		return ack;
     }
 	
