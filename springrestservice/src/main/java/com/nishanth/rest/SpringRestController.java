@@ -1,5 +1,7 @@
 package com.nishanth.rest;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -13,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
+
+import com.nishanth.rest.Ack;
+import com.nishanth.rest.SportsKnown;
 
 @Controller
 public class SpringRestController {
@@ -77,6 +82,61 @@ public class SpringRestController {
 		Ack ack = new Ack();
 		ack.setUniqueId("456789");
 		ack.setType("json");
+		return ack;
+    }
+	
+	@RequestMapping( value = "/xmlRequestProduceJson", consumes = "application/xml",produces = "application/json", method = RequestMethod.POST)
+    public @ResponseBody Ack submitXmlRequestProduceJson( @RequestBody SampleObject sampleObject, HttpServletRequest httpReq,
+    		HttpServletResponse httpResp)
+    {
+		Ack ack = new Ack();
+		ack.setUniqueId(sampleObject.getId());
+		ack.setType(sampleObject.getName());
+		return ack;
+    }
+	
+	@RequestMapping( value = "/jsonRequestProduceJson", consumes = "application/json",produces = "application/json", method = RequestMethod.POST)
+    public @ResponseBody Ack submitJsonRequestProduceJson( @RequestBody SampleObject sampleObject, HttpServletRequest httpReq,
+    		HttpServletResponse httpResp)
+    {
+		Ack ack = new Ack();
+		ack.setUniqueId(sampleObject.getId());
+		ack.setType(sampleObject.getName());
+		return ack;
+    }
+	
+	
+	@RequestMapping( value = "/xmlListRequest", consumes = "application/xml", method = RequestMethod.POST)
+    public @ResponseBody Ack submitXmlListRequest( @RequestBody Athlete athlete, HttpServletRequest httpReq,
+    		HttpServletResponse httpResp)
+    {
+		Ack ack = new Ack();
+		System.out.println(athlete.getName());
+		System.out.println(athlete.getAddress());
+		System.out.println(athlete.getAge());
+		List<SportsKnown> lists = athlete.getSports();
+		for(SportsKnown list : lists)
+		{
+			System.out.println(list.getSport());
+			System.out.println(list.getHandedness());
+		}
+		return ack;
+    }
+	
+	@RequestMapping( value = "/jsonListRequest", consumes = "application/json", method = RequestMethod.POST)
+    public @ResponseBody Ack submitJsonListRequest( @RequestBody Athlete athlete, HttpServletRequest httpReq,
+    		HttpServletResponse httpResp)
+    {
+		Ack ack = new Ack();
+		System.out.println(athlete.getName());
+		System.out.println(athlete.getAddress());
+		System.out.println(athlete.getAge());
+		List<SportsKnown> lists = athlete.getSports();
+		for(SportsKnown list : lists)
+		{
+			System.out.println(list.getSport());
+			System.out.println(list.getHandedness());
+		}
 		return ack;
     }
 	
