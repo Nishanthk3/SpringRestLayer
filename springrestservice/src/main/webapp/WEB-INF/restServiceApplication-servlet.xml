@@ -16,6 +16,7 @@
 	<property name="locations">
 		<list>
 			<value>classpath:sample.properties</value>
+			<value>classpath:version.properties</value>
 		</list>
 	</property>
 	</bean>

@@ -24,11 +24,14 @@ public class SpringRestController {
 	
 	@Value("${sample.key1}")
 	private String value;
+	
+	@Value("${version}")
+	private String version;
 
 	@RequestMapping( value="/")
 	public @ResponseBody String welcomePage()
 	{
-		return "Welcome to Spring Rest Layer";
+		return "Welcome to Spring Rest Layer, Version : "+version;
 	}
 	@RequestMapping( value="/greeting")
 	public @ResponseBody String greetingPage()
